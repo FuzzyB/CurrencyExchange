@@ -9,6 +9,5 @@ abstract class AbstractMarkup
 {
     abstract public function applyTo(Rate $rate): Rate;
 
-    public abstract function calculateMarkup(Money $amount): Money;
-
+    abstract public  function calculateMarkup(Money $amount): Money;
 }

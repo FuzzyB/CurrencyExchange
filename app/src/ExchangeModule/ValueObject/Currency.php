@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace src\ExchangeModule\ValueObject;
 
+use InvalidArgumentException;
+
 class Currency
 {
     private static array $currencies = [
@@ -20,7 +22,7 @@ class Currency
         $this->currencyCode = mb_strtoupper($this->currencyCode);
 
         if (!isset(self::$currencies[$this->currencyCode])) {
-            throw new \InvalidArgumentException('Unsupported currency used: ' . $this->currencyCode);
+            throw new InvalidArgumentException('Unsupported currency used: ' . $this->currencyCode);
         }
     }
 

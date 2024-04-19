@@ -15,6 +15,9 @@ class RateResolver
         'GBP_EUR' => 1.5432,
     ];
 
+    /**
+     * @throws CurrencyArgumentException
+     */
     public function getDesiredCurrencyRate(Currency $from, Currency $destinationCurrency): Rate
     {
         $key = $from->getSymbol().'_'.$destinationCurrency->getSymbol();

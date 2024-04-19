@@ -16,6 +16,9 @@ class ExchangeService {
         private readonly AbstractMarkup $markup,
     ) {}
 
+    /**
+     * @throws Exceptions\CurrencyArgumentException
+     */
     public function transaction(Money $tradeMoneyEuro, Currency $destinationCurrency, OperationType $operationType): Money
     {
         $currencyRate = $this->rateResolver->getDesiredCurrencyRate($tradeMoneyEuro->getCurrency(), $destinationCurrency);

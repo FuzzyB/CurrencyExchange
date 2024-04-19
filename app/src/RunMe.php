@@ -51,7 +51,7 @@ class RunMe {
         echo '<br>';
     }
 
-    private function printMarkup(int $markupPercent)
+    private function printMarkup(int $markupPercent): void
     {
         echo "Markup percent: $markupPercent<br>";
         echo '<br>';
