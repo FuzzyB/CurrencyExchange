@@ -26,5 +26,9 @@ class RateResolver
         return new Rate(self::EXCHANGE_RATES[$key], new NullMarkup(), $destinationCurrency );
     }
 
+    public static function getExchangeRates(): array
+    {
+        return self::EXCHANGE_RATES;
+    }
 
 }

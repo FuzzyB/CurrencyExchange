@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace src\ExchangeModule\ValueObject;
 
+use PHPUnit\Util\Exception;
+
 class Money
 {
     public function __construct(
@@ -32,6 +34,16 @@ class Money
 
     public function subtract(Money $decrease): self
     {
+        $result = $this->amount - $decrease->getAmount();
+        if ($result < 0) {
+            throw new Exception('Subtract result have to be positive');
+        }
+
         return new Money($this->amount - $decrease->getAmount(), $this->currency);
+    }
+
+    public function __toString(): string
+    {
+        return number_format($this->amount/10000, 2, ',', ' ') . $this->currency->getSymbol();
     }
 }

@@ -10,9 +10,7 @@ services:
     build:
       dockerfile: ./php/Dockerfile
     volumes:
-      - /var/www/html/vendor
-      - ./app/src:/var/www/html/src
-      - ./app/tests:/var/www/html/tests
+      - ./app:/var/www/html
 
 volumes:
   php_socket:
